@@ -2,6 +2,7 @@ import requests
 import datetime
 import os
 import re
+import json
 
 ACCESS_KEY = os.environ.get("DIVERA_API_KEY")
 API_URL = f"https://app.divera247.com/api/v2/alarms?accesskey={ACCESS_KEY}"
@@ -41,6 +42,24 @@ def sanitize_stichwort(stichwort):
 
     return stichwort.strip()
 
+def load_translations(file_path="translations.json"):
+    with open(file_path, "r", encoding="utf-8") as f:
+        translations = json.load(f)
+    return translations
+
+# Lade die Übersetzungen
+translations = load_translations()
+
+# Zugriff auf die Gruppen- und Fahrzeugübersetzungen
+GROUPS = translations["groups"]
+VEHICLES = translations["vehicles"]
+
+def translate_group(group_id):
+    return GROUPS.get(group_id, "Unbekannte Gruppe")
+
+def translate_vehicle(vehicle_id):
+    return VEHICLES.get(vehicle_id, "Unbekanntes Fahrzeug")
+
 
 def generate_html(einsaetze):
     html = f"""<html>
@@ -57,7 +76,7 @@ def generate_html(einsaetze):
 <body>
 <h2>Einsätze des Jahres {datetime.datetime.now().year}</h2>
 <table>
-    <tr><th>Datum</th><th>Uhrzeit</th><th>Stichwort</th><th>Ort</th></tr>
+    <tr><th>Datum</th><th>Uhrzeit</th><th>Stichwort</th><th>Ort</th><th>Report</th><th>Fahrzeug</th><th>Gruppe</th></tr>
 """
 
     for einsatz in einsaetze:
@@ -65,7 +84,19 @@ def generate_html(einsaetze):
         if ts.year == datetime.datetime.now().year:
             raw_address = einsatz.get("address", "")
             clean_address = sanitize_address(raw_address)
-            html += f"<tr><td>{ts.strftime('%d.%m.%Y')}</td><td>{ts.strftime('%H:%M')}</td><td>{sanitize_stichwort(einsatz.get('title', ''))}</td><td>{clean_address}</td></tr>"
+            report = einsatz.get("report", "")  # Füge Report hinzu
+            vehicle = translate_vehicle(einsatz.get("vehicle", "Unbekannt"))  # Übersetze Fahrzeug-ID
+            group = translate_group(einsatz.get("group", 0))  # Übersetze Gruppen-ID
+            
+            html += f"""<tr>
+                <td>{ts.strftime('%d.%m.%Y')}</td>
+                <td>{ts.strftime('%H:%M')}</td>
+                <td>{sanitize_stichwort(einsatz.get('title', ''))}</td>
+                <td>{clean_address}</td>
+                <td>{report}</td>
+                <td>{vehicle}</td>
+                <td>{group}</td>
+            </tr>"""
 
     html += """
 </table>
@@ -74,7 +105,3 @@ def generate_html(einsaetze):
 """
     with open("einsaetze.html", "w", encoding="utf-8") as f:
         f.write(html)
-
-if __name__ == "__main__":
-    einsaetze = fetch_einsaetze()
-    generate_html(einsaetze)
