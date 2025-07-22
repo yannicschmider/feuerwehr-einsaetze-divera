@@ -1,0 +1,33 @@
+name: Update Einsätze
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'  # alle 15 Minuten
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Run script
+        env:
+          DIVERA_API_KEY: ${{ secrets.DIVERA_API_KEY }}
+        run: python einsaetze.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add einsaetze.html
+          git commit -m "Update einsaetze" || echo "No changes"
+          git push
