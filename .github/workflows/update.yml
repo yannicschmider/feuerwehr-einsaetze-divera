@@ -2,7 +2,7 @@ name: Update Einsätze
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  # alle 15 Minuten
+    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 jobs:
