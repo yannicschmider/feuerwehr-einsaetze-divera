@@ -1,6 +1,7 @@
 import requests
 import datetime
 import os
+import re
 
 ACCESS_KEY = os.environ.get("DIVERA_API_KEY")
 API_URL = f"https://app.divera247.com/api/v2/alarms?accesskey={ACCESS_KEY}"
@@ -10,6 +11,26 @@ def fetch_einsaetze():
     response.raise_for_status()
     data = response.json()
     return data["data"]["items"].values()
+
+def sanitize_address(address):
+    if not address:
+        return ""
+
+    # Hausnummern entfernen (Ziffern und ggf. Buchstaben, z.B. "7A")
+    address = re.sub(r"\b\d+[a-zA-Z]?\b", "", address)
+
+    # Überflüssige Leerzeichen bereinigen
+    address = re.sub(r"\s{2,}", " ", address).strip()
+
+    # Doppelte Ortsbezeichnungen (z. B. "Hausach Hausach-Ost")
+    parts = address.split(", ")
+    if len(parts) == 2:
+        city_parts = parts[1].split()
+        if len(city_parts) == 2 and city_parts[0] in city_parts[1]:
+            parts[1] = city_parts[1]  # z. B. "Hausach-Ost"
+        address = ", ".join(parts)
+
+    return address
 
 def generate_html(einsaetze):
     html = f"""<html>
@@ -32,7 +53,9 @@ def generate_html(einsaetze):
     for einsatz in einsaetze:
         ts = datetime.datetime.fromtimestamp(int(einsatz["date"]))
         if ts.year == datetime.datetime.now().year:
-            html += f"<tr><td>{ts.strftime('%d.%m.%Y')}</td><td>{ts.strftime('%H:%M')}</td><td>{einsatz.get('title', '')}</td><td>{einsatz.get('address', '')}</td></tr>"
+            raw_address = einsatz.get("address", "")
+            clean_address = sanitize_address(raw_address)
+            html += f"<tr><td>{ts.strftime('%d.%m.%Y')}</td><td>{ts.strftime('%H:%M')}</td><td>{einsatz.get('title', '')}</td><td>{clean_address}</td></tr>"
 
     html += """
 </table>
