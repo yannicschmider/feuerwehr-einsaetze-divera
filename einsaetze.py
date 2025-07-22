@@ -32,6 +32,16 @@ def sanitize_address(address):
 
     return address
 
+def sanitize_stichwort(stichwort):
+    # Doppelte Kürzel entfernen (z. B. "M M 1" -> "M 1")
+    stichwort = re.sub(r"(\b\w+\b)\s+\1", r"\1", stichwort)
+
+    # Muster "// R" gefolgt von einer Zahl entfernen (z. B. "// R 1.2" oder "// R 84")
+    stichwort = re.sub(r"// R\s?\d+(\.\d+)?", "", stichwort)
+
+    return stichwort.strip()
+
+
 def generate_html(einsaetze):
     html = f"""<html>
 <head>
@@ -55,7 +65,7 @@ def generate_html(einsaetze):
         if ts.year == datetime.datetime.now().year:
             raw_address = einsatz.get("address", "")
             clean_address = sanitize_address(raw_address)
-            html += f"<tr><td>{ts.strftime('%d.%m.%Y')}</td><td>{ts.strftime('%H:%M')}</td><td>{einsatz.get('title', '')}</td><td>{clean_address}</td></tr>"
+            html += f"<tr><td>{ts.strftime('%d.%m.%Y')}</td><td>{ts.strftime('%H:%M')}</td><td>{sanitize_stichwort(einsatz.get('title', ''))}</td><td>{clean_address}</td></tr>"
 
     html += """
 </table>
