@@ -24,10 +24,10 @@ jobs:
           DIVERA_API_KEY: ${{ secrets.DIVERA_API_KEY }}
         run: python einsaetze.py
 
-      - name: Commit changes
+      - name: Commit and Push changes
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
+          git config user.name "github-actions[bot]"
+          git config user.name "github-actions[bot]"
           git add einsaetze.html
           git commit -m "Update einsaetze" || echo "No changes"
-          git push
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
