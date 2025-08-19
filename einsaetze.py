@@ -358,7 +358,7 @@ def push_file_to_github():
         sha = None
 
     data = {
-        "message": f"Update index.html ({datetime.now().isoformat(timespec='seconds')})",
+        "message": f"Automated Update einsatz_website.html ({datetime.now().isoformat(timespec='seconds')})",
         "content": encoded_content,
         "branch": BRANCH,
     }
