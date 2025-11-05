@@ -62,6 +62,7 @@ def get_active_vehicles():
 def sanitize_address(address: str) -> str:
     if not address:
         return ""
+
     # Hausnummern inkl. Varianten wie "7A" oder "7 A" entfernen
     address = re.sub(r"\b\d+\s?[a-zA-Z]?\b", "", address)
 
@@ -75,8 +76,12 @@ def sanitize_address(address: str) -> str:
     parts = address.split(", ")
     if len(parts) == 2:
         city_parts = parts[1].split()
+        # Fall 1: "Hausach Hausach-Ost"
         if len(city_parts) == 2 and city_parts[0] in city_parts[1]:
-            parts[1] = city_parts[1]  # z. B. "Hausach-Ost"
+            parts[1] = city_parts[1]
+        # Fall 2: "Haslach im Kinzigtal Haslach"
+        elif len(city_parts) >= 2 and city_parts[-1] in city_parts[:-1]:
+            parts[1] = " ".join(city_parts[:-1])
         address = ", ".join(parts)
 
     return address
@@ -315,13 +320,21 @@ tr:nth-child(even) {
 
         # Gruppen auflösen
         gruppen_ids = einsatz.get("group", [])
+
+        # ID 99789 an den Anfang setzen, falls vorhanden
+        gruppen_ids = [gid for gid in gruppen_ids if gid != 99789]
+        gruppen_ids = [99789] + gruppen_ids if 99789 in einsatz.get("group", []) else gruppen_ids
+
         gruppen_namen = [group_trans.get(str(gid), str(gid)) for gid in gruppen_ids]
         gruppen_str = ", ".join(gruppen_namen)
 
+
         # Fahrzeuge auflösen
         fahrzeug_ids = einsatz.get("vehicle_reallife", [])
+        fahrzeug_ids = [vid for vid in fahrzeug_ids if vid != 60060]  # Fahrzeug 60060 ausschließen
         fahrzeuge_namen = [vehicle_trans.get(str(vid), str(vid)) for vid in fahrzeug_ids]
         fahrzeuge_str = ", ".join(fahrzeuge_namen)
+
 
         html += f"<tr><td>{datum}</td><td>{uhrzeit}</td><td>{stichwort} {live_html}</td><td>{ort}</td><td>{bericht}</td><td>{gruppen_str}</td><td>{fahrzeuge_str}</td></tr>\n"
 
@@ -358,7 +371,7 @@ def push_file_to_github():
         sha = None
 
     data = {
-        "message": f"Automated Update einsatz_website.html ({datetime.now().isoformat(timespec='seconds')})",
+        "message": f"Update index.html ({datetime.now().isoformat(timespec='seconds')})",
         "content": encoded_content,
         "branch": BRANCH,
     }
@@ -410,5 +423,4 @@ while True:
     if has_file_changed() == True:
         push_file_to_github()
     
-    time.sleep(120)
-
+    time.sleep(5)
