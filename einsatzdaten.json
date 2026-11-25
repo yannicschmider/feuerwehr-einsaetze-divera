@@ -1,5 +1,67 @@
 [
     {
+        "id": 38893593,
+        "date": "2026-11-21",
+        "time": "09:20:56",
+        "title": "B 3.2 - LKW / Bus / kleines Luftfahrzeug / Außer",
+        "address": "B33 / B294 vor Sommerbergtunnel West, Hausach-West",
+        "group": [
+            99787,
+            99789,
+            99790
+        ],
+        "closed": true
+    },
+    {
+        "id": 38875389,
+        "date": "2026-11-20",
+        "time": "08:45:28",
+        "title": "SL 2 - Sucheinsatz",
+        "address": "Sattlerstraße, Hausach Hegerfeld",
+        "group": [
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 38814654,
+        "date": "2026-11-16",
+        "time": "23:55:28",
+        "title": "B 3.1 - Gebäudebrand",
+        "address": "Grub, Mühlenbach",
+        "group": [
+            99789,
+            99790
+        ],
+        "closed": true
+    },
+    {
+        "id": 38669465,
+        "date": "2026-11-08",
+        "time": "20:22:02",
+        "title": "M 1 - BMA",
+        "address": "Luisenstraße, Wolfach",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 38554124,
+        "date": "2026-11-02",
+        "time": "09:33:43",
+        "title": "M 1 - BMA",
+        "address": "Schätzlestraße, Hausach-Ost",
+        "group": [
+            99786,
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
         "id": 33332713,
         "date": "2026-10-26",
         "time": "13:03:56",
