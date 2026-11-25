@@ -5,16 +5,25 @@ on:
     - cron: '*/5 * * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
+# Nie zwei Läufe gleichzeitig, sonst kollidieren die Pushes
+concurrency:
+  group: update-einsaetze
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
       - name: Install requests
         run: pip install requests
@@ -24,10 +33,14 @@ jobs:
           DIVERA_API_KEY: ${{ secrets.DIVERA_API_KEY }}
         run: python einsaetze.py
 
-      - name: Commit and Push changes
+      - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
-          git config user.name "github-actions[bot]"
-          git add einsaetze.html
-          git commit -m "Update einsaetze" || echo "No changes"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add einsatzdaten.json einsatz_website.html
+          if git diff --cached --quiet; then
+            echo "Keine Änderungen"
+            exit 0
+          fi
+          git commit -m "Update Einsätze"
+          git push
