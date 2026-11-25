@@ -22,16 +22,18 @@ ALARMS_API_URL = "https://app.divera247.com/api/v2/alarms"
 REQUEST_TIMEOUT = 15  # Sekunden
 EINSATZDATEN_FILE = "einsatzdaten.json"
 TRANSLATIONS_FILE = "translations.json"
+# Pro Jahr eine eigene Seite (einsaetze_2026.html, einsaetze_2027.html, ...).
+# einsatz_website.html zeigt zusätzlich immer das aktuelle Jahr.
+YEAR_HTML_FILE = "einsaetze_{year}.html"
 OUTPUT_HTML_FILE = "einsatz_website.html"
 FILTER_WORDS = ["test", "übung", "noshow"]
 # GitHub-Runner laufen in UTC, die Uhrzeiten sollen aber deutsche Zeit sein
 TIMEZONE = ZoneInfo("Europe/Berlin")
-# Auf der Seite werden nur Einsätze dieses Jahres angezeigt
-YEAR = int(os.environ.get("EINSATZ_JAHR", datetime.now(TIMEZONE).year))
 # Gruppe "Kommando" soll immer zuerst stehen
 KOMMANDO_GROUP_ID = 99789
 # Nur diese Felder landen in einsatzdaten.json. Das Repo ist öffentlich,
 # Alarmtext, Leitstellennummer usw. haben dort nichts zu suchen.
+# "closed" wird nicht mehr geschrieben, bleibt bei alten Einträgen aber erhalten.
 PUBLIC_FIELDS = ["id", "date", "time", "title", "address", "group", "closed"]
 
 
@@ -118,7 +120,6 @@ def process_einsaetze(einsatz_list: list) -> list:
             "title": sanitize_stichwort(einsatz.get("title", "")),
             "address": sanitize_address(einsatz.get("address", "")),
             "group": einsatz.get("group", []),
-            "closed": einsatz.get("closed", True),
         }
 
         if einsatz["id"] in einsatz_index:
@@ -171,21 +172,6 @@ th {{
 tr:nth-child(even) {{
     background-color: #4E4E4E;
 }}
-.live-indicator {{
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    margin-right: 5px;
-    border-radius: 50%;
-    background-color: #E94232;
-    animation: pulse 1.5s infinite;
-    vertical-align: middle;
-}}
-@keyframes pulse {{
-    0% {{ transform: scale(1); opacity: 1; }}
-    50% {{ transform: scale(1.5); opacity: 0.6; }}
-    100% {{ transform: scale(1); opacity: 1; }}
-}}
 </style>
 </head>
 <body>
@@ -201,20 +187,21 @@ tr:nth-child(even) {{
 """
 
 
-def generate_html_page(einsatz_list: list) -> None:
+def generate_html_page(einsatz_list: list, year: int) -> str:
     with open(TRANSLATIONS_FILE, "r", encoding="utf-8") as f:
         group_trans = json.load(f).get("groups", {})
 
-    html = HTML_HEAD.format(year=YEAR)
+    html = HTML_HEAD.format(year=year)
+    rows = 0
 
     for einsatz in einsatz_list:
-        if not einsatz.get("date", "").startswith(str(YEAR)):
+        if not einsatz.get("date", "").startswith(str(year)):
             continue
+        rows += 1
 
         datum = datetime.strptime(einsatz["date"], "%Y-%m-%d").strftime("%d.%m.%Y")
         uhrzeit = escape(einsatz.get("time", ""))
         stichwort = escape(einsatz.get("title", ""))
-        live_html = '<span class="live-indicator">LIVE</span>' if not einsatz.get("closed", True) else ""
         ort = escape(einsatz.get("address", ""))
 
         gruppen_ids = einsatz.get("group", [])
@@ -223,14 +210,25 @@ def generate_html_page(einsatz_list: list) -> None:
         gruppen_str = escape(", ".join(group_trans.get(str(gid), str(gid)) for gid in gruppen_ids))
 
         html += (
-            f"<tr><td>{datum}</td><td>{uhrzeit}</td><td>{stichwort} {live_html}</td>"
+            f"<tr><td>{datum}</td><td>{uhrzeit}</td><td>{stichwort}</td>"
             f"<td>{ort}</td><td>{gruppen_str}</td></tr>\n"
         )
 
-    html += "</table>\n</body>\n</html>\n"
+    if rows == 0:
+        # z. B. am 1. Januar, bevor der erste Einsatz des Jahres kommt
+        html += '<tr><td colspan="5">Bisher keine Einsätze in diesem Jahr.</td></tr>\n'
 
-    with open(OUTPUT_HTML_FILE, "w", encoding="utf-8") as f:
-        f.write(html)
+    html += "</table>\n</body>\n</html>\n"
+    return html
+
+
+def write_file(path: str, content: str) -> None:
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(content)
+
+
+def current_year() -> int:
+    return datetime.now(TIMEZONE).year
 
 
 def main() -> None:
@@ -239,8 +237,16 @@ def main() -> None:
 
     einsatz_list = process_einsaetze(load_einsatzdaten())
     save_einsatzdaten(einsatz_list)
-    generate_html_page(einsatz_list)
-    print(f"{len(einsatz_list)} Einsätze gespeichert, HTML erstellt.")
+
+    # Alle Jahre neu erzeugen, damit z. B. ein Einsatz vom 31.12., der erst im
+    # Januar geschlossen wird, auch auf der Vorjahresseite aktualisiert wird.
+    this_year = current_year()
+    years = {int(e["date"][:4]) for e in einsatz_list} | {this_year}
+    for year in sorted(years):
+        write_file(YEAR_HTML_FILE.format(year=year), generate_html_page(einsatz_list, year))
+    write_file(OUTPUT_HTML_FILE, generate_html_page(einsatz_list, this_year))
+
+    print(f"{len(einsatz_list)} Einsätze gespeichert, HTML für {sorted(years)} erstellt.")
 
 
 if __name__ == "__main__":
