@@ -1,0 +1,796 @@
+[
+    {
+        "id": 33332713,
+        "date": "2026-10-26",
+        "time": "13:03:56",
+        "title": "B 3.4 - Vegetationsbrand groß > 100m²",
+        "address": "Pfauß (B294), Mühlenbach",
+        "group": [
+            99790,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 33332712,
+        "date": "2026-10-17",
+        "time": "08:07:33",
+        "title": "M 1 - BMA",
+        "address": "Oberwolfacher Straße (L96), Wolfach",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 38205049,
+        "date": "2026-10-13",
+        "time": "06:59:29",
+        "title": "TH 3 - VU Person eingeklemmt",
+        "address": "Einbacher Straße, Hausach Einbach",
+        "group": [
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 38194010,
+        "date": "2026-10-12",
+        "time": "13:12:35",
+        "title": "TH 1.1 - Tierrettung ,-bergung",
+        "address": "Vor Erdlinsbach, Schiltach Vorderlehengericht",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 38030884,
+        "date": "2026-10-02",
+        "time": "18:21:57",
+        "title": "W 2 - Person in stehendem Gewässer",
+        "address": "Allmendstraße (L96), Oberwolfach Kirche",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 37996581,
+        "date": "2026-09-30",
+        "time": "19:30:23",
+        "title": "M 1 - BMA",
+        "address": "Oberwolfacher Straße (L96), Wolfach",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 37945843,
+        "date": "2026-09-27",
+        "time": "23:11:55",
+        "title": "B 3.1 - Gebäudebrand",
+        "address": "Riesenbach, Gutach",
+        "group": [
+            99786,
+            99787,
+            99789,
+            195953
+        ],
+        "closed": true
+    },
+    {
+        "id": 37928245,
+        "date": "2026-09-26",
+        "time": "20:29:41",
+        "title": "B 3.1 - Kamin",
+        "address": "Pfarrer-Strittmatter-Weg, Fischerbach",
+        "group": [
+            99786,
+            99789,
+            99790
+        ],
+        "closed": true
+    },
+    {
+        "id": 37909802,
+        "date": "2026-09-25",
+        "time": "19:20:25",
+        "title": "B 3.2 - verdächtiger Rauch im/am Gebäude / Außer",
+        "address": "Martinshof, Hausach Fischerbach",
+        "group": [
+            99786,
+            99787,
+            99789,
+            99790
+        ],
+        "closed": true
+    },
+    {
+        "id": 37864314,
+        "date": "2026-09-23",
+        "time": "07:36:02",
+        "title": "B 3.1 - LKW / Bus / kleines Luftfahrzeug",
+        "address": "Hauptstraße, Hausach-Stadtmitte",
+        "group": [
+            99786,
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 37811046,
+        "date": "2026-09-19",
+        "time": "20:19:44",
+        "title": "B 3.1 - Gebäudebrand",
+        "address": "Neue Eisenbahnstraße, Haslach im Kinzigtal",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 37659313,
+        "date": "2026-09-12",
+        "time": "08:01:43",
+        "title": "M 1 - BMA",
+        "address": "Hinterer Bahnhof, Hausach-Ost",
+        "group": [
+            99786,
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 37620702,
+        "date": "2026-09-10",
+        "time": "13:50:20",
+        "title": "M 1 - BMA",
+        "address": "Friedensstraße, Oberwolfach Kirche",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 37586762,
+        "date": "2026-09-08",
+        "time": "14:34:44",
+        "title": "B 3.1 - Gebäudebrand",
+        "address": "Hinterer Bahnhof, Hausach-Ost",
+        "group": [
+            99786,
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 37542476,
+        "date": "2026-09-05",
+        "time": "21:37:40",
+        "title": "M 1 - BMA",
+        "address": "Luisenstraße, Wolfach",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 37512488,
+        "date": "2026-09-04",
+        "time": "09:37:38",
+        "title": "M 1 - BMA",
+        "address": "Luisenstraße, Wolfach",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 37511460,
+        "date": "2026-09-04",
+        "time": "08:38:56",
+        "title": "B 3.1 - Elektroanlagen",
+        "address": "Almendgrund, Oberharmersbach",
+        "group": [
+            99789,
+            99790
+        ],
+        "closed": true
+    },
+    {
+        "id": 35099505,
+        "date": "2026-06-11",
+        "time": "11:28:09",
+        "title": "M 1 - BMA",
+        "address": "Triberger Straße (B33), Hornberg",
+        "group": [
+            99789,
+            178215
+        ],
+        "closed": true
+    },
+    {
+        "id": 35052910,
+        "date": "2026-06-09",
+        "time": "17:56:19",
+        "title": "B 2.2 - PKW freistehend / außerorts",
+        "address": "L107 Büchereck > Landwassereck, Gutach",
+        "group": [
+            99789,
+            99790
+        ],
+        "closed": true
+    },
+    {
+        "id": 35022907,
+        "date": "2026-06-08",
+        "time": "16:32:48",
+        "title": "M 1 - BMA",
+        "address": "Triberger Straße (B33), Hornberg",
+        "group": [
+            99789,
+            178215
+        ],
+        "closed": true
+    },
+    {
+        "id": 34937206,
+        "date": "2026-06-05",
+        "time": "14:36:11",
+        "title": "B 3.1 - Rauchwarnmelder",
+        "address": "Triberger Straße (B33), Hornberg",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 34883992,
+        "date": "2026-06-03",
+        "time": "16:27:52",
+        "title": "M 1 - BMA",
+        "address": "In der Hausmatte, Hornberg Niederwasser",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 34820756,
+        "date": "2026-06-01",
+        "time": "12:29:04",
+        "title": "M 1 - BMA",
+        "address": "Ferdinand-Reiß-Straße, Hausach-West",
+        "group": [
+            99786,
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 34819021,
+        "date": "2026-06-01",
+        "time": "11:23:48",
+        "title": "TH 3 - VU Person eingeklemmt",
+        "address": "B294 Hausach > Wolfach Kurve, Hausach-Ost",
+        "group": [
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 34764081,
+        "date": "2026-05-30",
+        "time": "12:13:46",
+        "title": "TH 2.2 - Türöffnung",
+        "address": "In den Brachfeldern, Hausach-Ost",
+        "group": [
+            99789,
+            178215
+        ],
+        "closed": true
+    },
+    {
+        "id": 34695938,
+        "date": "2026-05-28",
+        "time": "08:13:32",
+        "title": "TH 2.2 - Türöffnung",
+        "address": "Hegerfeldstraße, Hausach Hegerfeld",
+        "group": [
+            99789,
+            178215
+        ],
+        "closed": true
+    },
+    {
+        "id": 34624032,
+        "date": "2026-05-25",
+        "time": "19:20:10",
+        "title": "B 3.1 - Gebäudebrand",
+        "address": "Rosenstraße, Oberwolfach Kirche",
+        "group": [
+            99786,
+            99789,
+            99790
+        ],
+        "closed": true
+    },
+    {
+        "id": 34591937,
+        "date": "2026-05-24",
+        "time": "15:13:56",
+        "title": "B 3.4 - Vegetationsbrand groß > 100m²",
+        "address": "Unterrain, Gutach",
+        "group": [
+            99789,
+            99790
+        ],
+        "closed": true
+    },
+    {
+        "id": 34378251,
+        "date": "2026-05-16",
+        "time": "20:36:04",
+        "title": "B 1 - Vegetationsbrand klein < 10m²",
+        "address": "Frohnau, Hausach Frohnau",
+        "group": [
+            99789,
+            178215
+        ],
+        "closed": true
+    },
+    {
+        "id": 34302213,
+        "date": "2026-05-13",
+        "time": "23:16:14",
+        "title": "TH 3 - VU Person eingeklemmt",
+        "address": "Hauptstraße, Hausach-Stadtmitte",
+        "group": [
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 34281982,
+        "date": "2026-05-13",
+        "time": "08:07:55",
+        "title": "M 1 - BMA",
+        "address": "Hauptstraße, Hausach-West",
+        "group": [
+            99786,
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 34238704,
+        "date": "2026-05-11",
+        "time": "16:24:56",
+        "title": "ABC 2.1 - Öl-, Betriebsstoffe ab 100 ltr.",
+        "address": "B33 Gutach > Hausach, Gutach",
+        "group": [
+            99789,
+            133334
+        ],
+        "closed": true
+    },
+    {
+        "id": 34219460,
+        "date": "2026-05-11",
+        "time": "00:24:58",
+        "title": "B 3.1 - Elektroanlagen",
+        "address": "Häuslematten, Hornberg",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 33953269,
+        "date": "2026-05-01",
+        "time": "10:41:45",
+        "title": "B 3.1 - Rauchwarnmelder",
+        "address": "Ostlandstraße, Wolfach",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 33897051,
+        "date": "2026-04-29",
+        "time": "11:47:38",
+        "title": "ABC 2.2 - Gasgeruch",
+        "address": "Eisenbahnstraße (K5359), Hausach-Ost",
+        "group": [
+            99789,
+            133334,
+            178215
+        ],
+        "closed": true
+    },
+    {
+        "id": 33870714,
+        "date": "2026-04-28",
+        "time": "13:01:14",
+        "title": "B 1 - Busch / Baum / Hecke",
+        "address": "Hauptstraße, Hausach-West",
+        "group": [
+            99789,
+            178215
+        ],
+        "closed": true
+    },
+    {
+        "id": 33615348,
+        "date": "2026-04-19",
+        "time": "02:56:50",
+        "title": "M 1 - BMA",
+        "address": "Hinterer Bahnhof -, Hausach-Ost",
+        "group": [
+            99786,
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 33577736,
+        "date": "2026-04-17",
+        "time": "17:23:32",
+        "title": "TH 1.1 - Unterstützung RD",
+        "address": "Am Bühlhof, Hausach-West",
+        "group": [
+            99789,
+            178215
+        ],
+        "closed": true
+    },
+    {
+        "id": 33569613,
+        "date": "2026-04-17",
+        "time": "11:40:35",
+        "title": "B 3.1 - Rauchwarnmelder",
+        "address": "Eduard-Trautwein-Straße, Wolfach",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 33332705,
+        "date": "2026-04-08",
+        "time": "18:16:42",
+        "title": "B 2.2 - verdächtiger Rauch im Freien / außerorts",
+        "address": "Hausach Frohnau",
+        "group": [
+            99787,
+            99789,
+            99790
+        ],
+        "closed": true
+    },
+    {
+        "id": 33297721,
+        "date": "2026-04-07",
+        "time": "13:00:20",
+        "title": "TH 2.2 - Türöffnung",
+        "address": "Hegerfeldstraße, Hausach Hegerfeld",
+        "group": [
+            99789,
+            178215
+        ],
+        "closed": true
+    },
+    {
+        "id": 33211914,
+        "date": "2026-04-04",
+        "time": "07:54:11",
+        "title": "B 2.1 - Container am Gebäude",
+        "address": "Hinterer Bahnhof, Hausach-Ost",
+        "group": [
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 33173452,
+        "date": "2026-04-02",
+        "time": "17:51:07",
+        "title": "B 3.1 - Gebäudebrand",
+        "address": "Obertal -, Oberharmersbach",
+        "group": [],
+        "closed": true
+    },
+    {
+        "id": 33137062,
+        "date": "2026-04-01",
+        "time": "11:36:45",
+        "title": "M 1 - BMA",
+        "address": "Am Schofferpark, Hornberg",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 32927730,
+        "date": "2026-03-24",
+        "time": "14:01:57",
+        "title": "B 3.2 - LKW / Bus / kleines Luftfahrzeug / Außer",
+        "address": "B294 vor Reutherbergtunnel West, Wolfach",
+        "group": [
+            99789,
+            99790
+        ],
+        "closed": true
+    },
+    {
+        "id": 32926546,
+        "date": "2026-03-24",
+        "time": "13:08:36",
+        "title": "B 3.2 - Kamin / Außerorts",
+        "address": "Erzenbach, Oberwolfach Walke",
+        "group": [
+            99786,
+            99789,
+            99790
+        ],
+        "closed": true
+    },
+    {
+        "id": 32569081,
+        "date": "2026-03-11",
+        "time": "10:45:26",
+        "title": "M 1 - BMA",
+        "address": "Hinterer Bahnhof, Hausach-Ost",
+        "group": [
+            99786,
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 32552027,
+        "date": "2026-03-10",
+        "time": "18:20:15",
+        "title": "B 3.1 - Wohnungsbrand",
+        "address": "Mühlengrün, Oberwolfach Kirche",
+        "group": [
+            99786,
+            99789,
+            99790
+        ],
+        "closed": true
+    },
+    {
+        "id": 32347562,
+        "date": "2026-03-03",
+        "time": "08:29:40",
+        "title": "M 1 - BMA",
+        "address": "Hinterer Bahnhof -, Hausach-Ost",
+        "group": [
+            99786,
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 32279791,
+        "date": "2026-02-28",
+        "time": "17:03:08",
+        "title": "M 1 - BMA",
+        "address": "Hauptstraße, Hausach-West",
+        "group": [
+            99786,
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 32279790,
+        "date": "2026-02-27",
+        "time": "13:20:51",
+        "title": "B 2.2 - verdächtiger Rauch im Freien / außerorts",
+        "address": "Breitenbachstraße, Hausach-Stadtmitte",
+        "group": [
+            99790,
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 32279789,
+        "date": "2026-02-22",
+        "time": "11:53:00",
+        "title": "B 3.1 - Gebäudebrand",
+        "address": "Hauptstraße, Hausach-West",
+        "group": [
+            99786,
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 31936974,
+        "date": "2026-02-16",
+        "time": "09:06:29",
+        "title": "M 1 - BMA",
+        "address": "Hinterer Bahnhof, Hausach-Ost",
+        "group": [
+            99786,
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 31773414,
+        "date": "2026-02-10",
+        "time": "10:07:29",
+        "title": "B 3.1 - BMA über Sicherheitsfirma",
+        "address": "Wolfacher Straße, Bad Rippoldsau-Schapbach",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 31533902,
+        "date": "2026-02-01",
+        "time": "15:51:42",
+        "title": "B 3.1 - Kamin",
+        "address": "Hans-Thoma-Straße, Hornberg",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 31439601,
+        "date": "2026-01-29",
+        "time": "05:23:06",
+        "title": "B 3.1 - Kamin",
+        "address": "Oberer Kastaniendobel, Wolfach",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 31372399,
+        "date": "2026-01-26",
+        "time": "17:08:32",
+        "title": "B 3.1 - Kamin",
+        "address": "Gartenstraße, Hornberg",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 31200713,
+        "date": "2026-01-20",
+        "time": "09:53:22",
+        "title": "B 3.1 - Dachstuhl",
+        "address": "Reichenbacher Straße, Hornberg",
+        "group": [
+            99786,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 31163286,
+        "date": "2026-01-18",
+        "time": "23:26:15",
+        "title": "M 1 - BMA",
+        "address": "Hinterer Bahnhof, Hausach-Ost",
+        "group": [
+            99786,
+            99787,
+            99789
+        ],
+        "closed": true
+    },
+    {
+        "id": 31133254,
+        "date": "2026-01-17",
+        "time": "18:04:46",
+        "title": "B 3.2 - Keller / Außerorts",
+        "address": "Holzhack, Oberharmersbach",
+        "group": [
+            99790,
+            178215
+        ],
+        "closed": true
+    },
+    {
+        "id": 33332706,
+        "date": "2026-01-17",
+        "time": "11:40:40",
+        "title": "M 1 - BMA",
+        "address": "Hauptstraße, Hausach-West",
+        "group": [],
+        "closed": true
+    },
+    {
+        "id": 33332707,
+        "date": "2026-01-10",
+        "time": "09:08:43",
+        "title": "M 1 - BMA",
+        "address": "Ferdinand-Reiß-Straße, Hausach-West",
+        "group": [],
+        "closed": true
+    },
+    {
+        "id": 33332708,
+        "date": "2026-01-07",
+        "time": "20:15:49",
+        "title": "TH 1.1 - Ausleuchten / RTH - Landung",
+        "address": "Waldstraße, Hausach-Stadtmitte",
+        "group": [],
+        "closed": true
+    },
+    {
+        "id": 33332709,
+        "date": "2026-01-06",
+        "time": "17:00:00",
+        "title": "TH 1.3 - Person im Aufzug",
+        "address": "Pfarrer-Brunner-Straße, Hausach-Stadtmitte",
+        "group": [],
+        "closed": true
+    },
+    {
+        "id": 33332710,
+        "date": "2026-01-03",
+        "time": "08:59:22",
+        "title": "ABC 2.2 - Gasgeruch",
+        "address": "Hauptstraße, Hausach-West",
+        "group": [],
+        "closed": true
+    },
+    {
+        "id": 33332711,
+        "date": "2026-01-03",
+        "time": "08:16:29",
+        "title": "ABC 2.2 - Gasgeruch",
+        "address": "Klosterplatz, Hausach-Stadtmitte",
+        "group": [],
+        "closed": true
+    }
+]
